@@ -1,0 +1,24 @@
+<horizontal
+    id='backgroundImage'
+    background="title-gradient"
+    xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+    xsi:noNamespaceSchemaLocation='https://raw.githubusercontent.com/RedBrumbler/Quest-BSML-Docs/gh-pages/schema.xsd'
+    pref-height='12'
+    vertical-fit="PreferredSize"
+    pref-width='70'
+    horizontal-fit="PreferredSize"
+>
+    <stack pref-width="9" preferred-height="9" horizontal-fit="PreferredSize" vertical-fit="PreferredSize" ignore-layout="true" anchor-pos-x="-29.5">
+        <image id='image' preserve-aspect="true" skew='0.0' />
+    </stack>
+    <vertical pref-width="42.5" preferred-height="12.0" horizontal-fit="PreferredSize" vertical-fit="PreferredSize" ignore-layout="true" anchor-pos-x="-2">
+        <text id='name' text='---' italics='true' />
+        <text id='sub' text='---' italics='true' />
+    </vertical>
+    <stack vertical-fit="PreferredSize" ignore-layout="true" anchor-pos-x="22.5">
+        <button id='toggle_friend' on-click='ToggleFriend' size-delta-x="14" size-delta-y="4" pref-width="14" text="bum"/>
+    </stack>
+    <stack vertical-fit="PreferredSize" ignore-layout="true" anchor-pos-x="7" anchor-pos-y="-0.2">
+        <text id='syncWarning' text='not synced' italics='true' color="red" align="Center"/>
+    </stack>
+</horizontal>

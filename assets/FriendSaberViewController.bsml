@@ -1,0 +1,60 @@
+<bg xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:noNamespaceSchemaLocation='https://raw.githubusercontent.com/RedBrumbler/Quest-BSML-Docs/gh-pages/schema.xsd'>
+    <vertical>
+        <horizontal id="headerPanel" pref-width="90" pref-height="8" anchor-pos-y="41.5" horizontal-fit="PreferredSize">
+            <text id="banner" text="FriendSaber" font-size="6" align="Midline" italics="true"/>
+        </horizontal>
+        
+        <tab-selector tab-tag='tabs' size-delta-y="8" select-cell="OnTabSelect"/>
+        <horizontal preferred-width="90" pref-height="90">
+            <tab tab-name="Search" tags="tabs">
+                <vertical spacing="5">
+                    <horizontal preferred-width="60" spacing="7">
+                        <horizontal pref-width="50">
+                            <string-setting id="searchBar" on-change="OnInput" text="Enter Name - "/>
+                        </horizontal>
+                        <horizontal pref-width="10">
+                            <button text="Search" on-click="OnSearch" size-delta-x="14" size-delta-y="4" pref-width="14"/>
+                        </horizontal>
+                    </horizontal>
+                    <horizontal pref-width="70" pref-height="84">
+                        <list id="searchResults" show-scrollbar='true' size-delta-y="84" visible-cells="7">
+                            <loading-indicator id="searchLoading" active="false" preserve-aspect="true" pref-width="20" pref-height="20" anchor-pos-y="5"/>
+                            <text id="searchError" active="true" text="Search for players!" anchor-pos-y="5" align="Center" italics="true" font-size="7"/>
+                        </list>
+                    </horizontal>
+                </vertical>
+            </tab>
+            <tab tab-name="Friends" tags="tabs">
+                <vertical>
+                    <horizontal pref-width="70" pref-height="84">
+                        <list id="friendsList" show-scrollbar='true' size-delta-y="84" visible-cells="7">
+                            <loading-indicator id="friendsLoading" active="false" preserve-aspect="true" pref-width="20" pref-height="20" anchor-pos-y="5"/>
+                            <text id="friendError" active="false" text="No friends loser" anchor-pos-y="5" align="Center" italics="true" font-size="7"/>
+                        </list>
+                    </horizontal>
+                </vertical>
+            </tab>
+        </horizontal>
+        <horizontal>
+            <button id="revertButton" text="revert" on-click="OpenRevertModal"/>
+            <action-button id="syncButton" text="sync" on-click="OpenSyncModal"/> 
+        </horizontal>
+    </vertical>
+    <modal id='friendSaberModal' size-delta-x='70' size-delta-y='50' clickerino-offerino-closerino='false' move-to-center='true'>
+        <vertical preferred-width='60' preferred-height='20' anchor-pos-y='0'>
+            <stack>
+                <loading-indicator id="syncProgress" active="false" preserve-aspect="true" pref-width="15" pref-height="15" anchor-pos-y="5"/>
+                <text id="warningText" word-wrapping="true" active="true" text="Would you like to sync your friend changes to scoresaber?" anchor-pos-y="5" align="Center" italics="true" font-size="5"/>
+            </stack>
+            <stack>
+                <horizontal id="confirmButtonsLayout">
+                    <button id='cancelButton' on-click='Cancel' text='No' pref-width="15" size-delta-x="15"/>
+                    <action-button on-click='ConfirmModal' text='Yes' pref-width="15" size-delta-x="15"/>
+                </horizontal>
+                <horizontal id="closeButtonLayout">
+                    <button on-click='Cancel' text='Close' pref-width="15" size-delta-x="15"/>
+                </horizontal>
+            </stack>
+        </vertical>
+	</modal>
+</bg>
